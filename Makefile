@@ -30,7 +30,7 @@ fake_ci: .env
 
 
 publish_pacts: .env
-	@"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${GIT_COMMIT} --tag ${GIT_BRANCH}
+	@"${PACT_CLI}" publish ${PWD}/pacts --consumer-app-version ${GIT_COMMIT} --branch ${GIT_BRANCH}
 
 ## =====================
 ## Build/test tasks
@@ -66,7 +66,7 @@ record_deployment: .env
 	@"${PACT_CLI}" broker record-deployment --pacticipant ${PACTICIPANT} --version ${GIT_COMMIT} --environment production
 
 ## =====================
-## Pactflow set up tasks
+## PactFlow set up tasks
 ## =====================
 
 # This should be called once before creating the webhook
